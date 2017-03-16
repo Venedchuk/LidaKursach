@@ -3,6 +3,7 @@ using Owin;
 using AspNetIdentityApp.Models;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
+using LidaKursach.Models;
 
 [assembly: OwinStartup(typeof(AspNetIdentityApp.Startup))]
 
