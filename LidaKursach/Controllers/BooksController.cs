@@ -33,6 +33,7 @@ namespace LidaKursach.Models
             return View(book);
         }
 
+
         public ActionResult Create()
         {
             return View();
