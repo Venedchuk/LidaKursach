@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +18,9 @@ namespace LidaKursach.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            string UserId = System.Web.HttpContext.Current.User.Identity.GetUserId();//user id
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext()
+                .GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());//get user object
             return View();
         }
 

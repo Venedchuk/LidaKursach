@@ -20,9 +20,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Get Book", "Carts", "Create")</li>
                     <li>@Html.ActionLink("Book", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Genres", "Index", "Genres")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink(User.Identity.Name,"Logout", "Account")</li>

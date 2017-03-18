@@ -34,14 +34,16 @@ namespace LidaKursach.Models
         public DateTime? FinishReading { get; set; }
         public string Status { get; set; }
         public virtual Book Book_Id { get; set; }
-        public virtual RegisterModel User_Id { get; set; }
+        public virtual Guid User_Id { get; set; }
     }
 
 
 
-    public class MovieDBContext : DbContext
+    public class LibraryDBContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Genres> Genres { get; set; }
+        public DbSet<Authors> Authors { get; set; }
+        public DbSet<Carts> Carts { get; set; }
     }
 }
