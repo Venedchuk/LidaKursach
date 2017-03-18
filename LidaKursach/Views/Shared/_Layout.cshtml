@@ -20,12 +20,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Get Book", "Create", "Carts")</li>
-                    <li>@Html.ActionLink("Book", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Genres", "Index", "Genres")</li>
+
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink(User.Identity.Name,"Logout", "Account")</li>
+                        <li>@Html.ActionLink("Get Book", "Create", "Carts")</li>
+                        <li>@Html.ActionLink("Book", "Index", "Books")</li>
+                        <li>@Html.ActionLink("Genres", "Index", "Genres")</li>
+                        <li>@Html.ActionLink("Reading book", "Index", "Carts")</li>
+                        <li>@Html.ActionLink(User.Identity.Name, "History", "Carts")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     }
                     else
                     {

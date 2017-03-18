@@ -49,10 +49,10 @@ namespace LidaKursach.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Title,Count,Genre")] Book book)
         {
-           
+
             if (ModelState.IsValid)
             {
-                book.Genre = db.Genres.First(x => x.Title==book.Genre.Title);
+                book.Genre = db.Genres.First(x => x.Title == book.Genre.Title);
                 db.Books.Add(book);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -91,21 +91,19 @@ namespace LidaKursach.Controllers
                 db.Books.Remove(removebook);
                 try
                 {
-                    book.Genre = db.Genres.Single(x=>x.Title==book.Genre.Title);
-                  
-
+                    book.Genre = db.Genres.Single(x => x.Title == book.Genre.Title);
                 }
                 catch (Exception a)
                 {
                     db.Genres.Add(book.Genre);
-                   
+
                 }
                 finally
                 {
                     db.Books.Add(book);
                     await db.SaveChangesAsync();
                 }
-             
+
                 return RedirectToAction("Index");
             }
             return View(book);
