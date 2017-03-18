@@ -85,16 +85,25 @@ namespace LidaKursach.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
+                var removebook = db.Books.Single(x => x.Id == book.Id);
+                db.Books.Remove(removebook);
                 try
                 {
-                    var removebook = db.Books.Single(x => x.Id==book.Id);
-                    db.Books.Remove(removebook);
-                    db.Books.Add(book);
-                    await db.SaveChangesAsync();
+                    book.Genre = db.Genres.Single(x=>x.Title==book.Genre.Title);
+                  
+
                 }
                 catch (Exception a)
                 {
-
+                    db.Genres.Add(book.Genre);
+                   
+                }
+                finally
+                {
+                    db.Books.Add(book);
+                    await db.SaveChangesAsync();
                 }
              
                 return RedirectToAction("Index");
