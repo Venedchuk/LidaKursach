@@ -5,7 +5,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Реєстрація</h2>
+<h2>Register user</h2>
 
 
 @using (Html.BeginForm())
@@ -18,36 +18,38 @@
         @Html.ValidationSummary(false)
 
         <div>
-            Адреса
+            Name
             <div>
                 @Html.EditorFor(model => model.Email)
             </div>
         </div>
-
+        <br />
         <div>
-            Год рождения
+            Year born
             <div>
                 @Html.EditorFor(model => model.Year)
             </div>
+            
         </div>
-
+        <br />
         <div>
-            Пароль
+            Password
             <div>
                 @Html.EditorFor(model => model.Password)
             </div>
         </div>
+        <br />
 
         <div>
-            Подтвердить пароль
+            Confirm password
             <div>
                 @Html.EditorFor(model => model.PasswordConfirm)
             </div>
         </div>
-
+        <br />
         <div>
             <div>
-                <input type="submit" value="Зареєструватись" />
+                <input type="submit" value="Register" />
             </div>
         </div>
     </div>
